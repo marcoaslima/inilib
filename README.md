@@ -17,7 +17,7 @@ ini.Save(@"c:\test.ini");
 *Deserializing*
 
 ```
-Product p = IniConverter.DeserializeObject<Product>(lines).FirstOrDefault();
+Products[] ps = IniConverter.DeserializeObject<Product>(lines);
 ```
 *Creating*
 
