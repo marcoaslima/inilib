@@ -29,7 +29,7 @@ namespace inilib.test
         public void TestDeserializeObject()
         {
             String[] lines = { "[Person]", "name=Jose", "age=18" };
-            Person[] p = IniConverter.DeserializeObject<Person>(lines);
+            Person[] p = IniConverter.DeserializeObject<Person>(lines).ToArray();
 
             if (p.Length > 0)
             {

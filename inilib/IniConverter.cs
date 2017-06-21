@@ -9,7 +9,13 @@ namespace inilib
 {
     public class IniConverter
     {       
-        public static T[] DeserializeObject<T>(String[] lines)
+
+        public static T[] DeserializeObjectArray<T>(String[] lines)
+        {
+            return DeserializeObject<T>(lines).ToArray();
+        }
+
+        public static List<T> DeserializeObject<T>(String[] lines)
         {
             List<T> objects = new List<T>();
 
@@ -29,13 +35,13 @@ namespace inilib
                 objects.Add(instance);
             }
 
-            return objects.ToArray();
+            return objects;
             
         }
 
         public static T[] DeserializeObject<T>(String Path)
         {
-            return DeserializeObject<T>(Archive.ReadLineFromFile(Path));
+            return DeserializeObject<T>(Archive.ReadLineFromFile(Path)).ToArray();
         }
 
         public static String[] SerializeObject(Object obj)
