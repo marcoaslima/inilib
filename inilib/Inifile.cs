@@ -71,5 +71,10 @@ namespace inilib
         {
             return this.sections.SingleOrDefault(item => item.Name == Name);
         }
+
+        public Boolean Save(String path)
+        {
+            return Archive.WriteAll(ConvertToString(), path);
+        }
     }
 }

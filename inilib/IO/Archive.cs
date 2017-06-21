@@ -82,7 +82,7 @@ namespace inilib.IO
             return this.Content;
         }
 
-        public static Boolean WriteAll(String Content, String Path)
+        public static Boolean WriteAll(String[] Content, String Path)
         {
             try
             {
@@ -97,6 +97,11 @@ namespace inilib.IO
             {
                 throw new Exception("Error, can't write the remote file (see permission)", ex);
             }
+        }
+        public static Boolean WriteAll(String Content, String Path)
+        {
+            String[] contentArray = { Content };
+            return WriteAll(contentArray, Path);
         }
     }
 }

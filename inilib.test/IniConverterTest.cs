@@ -24,5 +24,21 @@ namespace inilib.test
            String[] ini = IniConverter.SerializeObject(p);
            Assert.AreEqual(ini[0], String.Format("[{0}]", "Person"));
         }
+
+        [TestMethod]
+        public void TestDeserializeObject()
+        {
+            String[] lines = { "[Person]", "name=Jose", "age=18" };
+            Person[] p = IniConverter.DeserializeObject<Person>(lines);
+
+            if (p.Length > 0)
+            {
+                Assert.AreEqual(p[0].name, "Jose");
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
     }
 }

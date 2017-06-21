@@ -18,14 +18,12 @@ namespace inilib
             foreach (Section section in iniFile.sections)
             {
                 T instance = (T) Activator.CreateInstance(typeof(T));
-
-                PropertyInfo prop = typeof(T).GetProperty(section.Name);
-
+                
                 foreach (Key key in section.Keys)
                 {
                     PropertyInfo propKey = instance.GetType().GetProperty(key.Name);
                     var convertedValue = Convert.ChangeType(key.Value, propKey.PropertyType);
-                    prop.SetValue(propKey, convertedValue, null);
+                    propKey.SetValue(instance, convertedValue, null);
                 }
 
                 objects.Add(instance);
@@ -65,7 +63,6 @@ namespace inilib
             ini.sections.Add(currentSection);
             return ini;
         }
-
 
         public static IniFile DeserializeToInifile(String path)
         {
