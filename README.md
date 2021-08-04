@@ -1,12 +1,17 @@
 # IniLib
 
+![](https://img.shields.io/badge/status-deprecated-critical)
+
+
+Library not longer being maintened, please go to ![Brokenegg.DotIni](https://github.com/brokenegg-io/Brokenegg.DotIni)
+
 IniLib is a utility for creating and reading ".ini" files.  
 
 ## Usage
 
 *Serializing*
 
-```
+```csharp
 Product p = new Product();
 p.name = "Potatoes";
 p.price = 12;
